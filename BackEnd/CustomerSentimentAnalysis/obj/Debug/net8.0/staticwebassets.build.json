@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "cNS/eM+w3zKddOh2nIGh4wsXwsdoPTJs+ddEVpwzOXY=",
+  "Source": "CustomerSentimentAnalysis",
+  "BasePath": "_content/CustomerSentimentAnalysis",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

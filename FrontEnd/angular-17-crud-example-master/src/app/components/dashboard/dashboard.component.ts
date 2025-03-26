@@ -72,6 +72,18 @@ getGradient(sentimentScore:Conversation): string {
   return `linear-gradient(to right, ${goodColor} ${sentimentScore.positive * 100}%, ${neutralColor} ${sentimentScore.neutral * 100}%, ${badColor} ${sentimentScore.negative * 100}%)`;
 }
 
+
+getSentimentImage(conversation: Conversation): string {
+  
+  if (conversation.positive >= conversation.neutral && conversation.positive >= conversation.negative) {
+    return 'assets/images/positive.png';
+  } else if ((conversation.neutral >= conversation.positive && conversation.neutral >= conversation.negative)||(Math.round(conversation.positive*10)==Math.round(conversation.negative*10))) {
+    return 'assets/images/neutral.png';
+  } else {
+    return 'assets/images/negative.png';
+  }
+}
+
 }
              
 

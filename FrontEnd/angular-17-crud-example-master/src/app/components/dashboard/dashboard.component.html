@@ -19,9 +19,9 @@
                 <ng-template #thenTemplate>
 
                     <td  style="width: 200px;">
-                        <div class="display-img" *ngIf="con.sentiment=='Positive'"><img class="sentiment-img"  src="assets/images/positive.png" /></div>
-                        <div class="display-img" *ngIf="con.sentiment=='Neutral'"><img class="sentiment-img"  src="assets/images/neutral.png" /></div>
-                        <div class="display-img" *ngIf="con.sentiment=='Negative'"><img class="sentiment-img" src="assets/images/negative.png" /></div>
+                        <div class="display-img" *ngIf="con.sentiment">
+                            <img class="sentiment-img" [src]="getSentimentImage(con)" />
+                        </div>
                         <div *ngIf="con.sentiment" [style.background]="getGradient(con)" class="gradient-bar"></div></td>
                 </ng-template>
                 <ng-template #elseTemplate>

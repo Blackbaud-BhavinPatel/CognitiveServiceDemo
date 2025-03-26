@@ -18,7 +18,11 @@ export class AgentBbbotComponent {
       this.messages.push({ text: this.newMessage, type: 'question' });
       this.agentbotService.GetAnswerFromQuestion({ question: this.newMessage }).subscribe(
         response => {
-          this.messages.push({ text: response, type: 'answer' });
+          // Split the response after the colon
+          const splitResponse = response.split(':');
+          const formattedResponse = splitResponse.length > 1 ? splitResponse[2].trim() : response;
+  
+          this.messages.push({ text: formattedResponse, type: 'answer' });
         }
       );
       this.newMessage = '';

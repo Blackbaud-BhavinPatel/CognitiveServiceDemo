@@ -82,18 +82,21 @@ namespace CustomerSentimentAnalysis.DataLayer
 
         public async Task SaveConversation(int conversationId, Response<DocumentSentiment> textAnalysis)
         {
-            var sentimentResult = new SentimentResult
+            if (!context.SentimentResults.Any(x => x.ConversationId == conversationId))
             {
-                ConversationId = conversationId,
-                SentimentScore = textAnalysis.Value.Sentiment.ToString(),
-                Positive = Convert.ToDecimal(textAnalysis.Value.ConfidenceScores.Positive),
-                Neutral = Convert.ToDecimal(textAnalysis.Value.ConfidenceScores.Neutral),
-                Negative = Convert.ToDecimal(textAnalysis.Value.ConfidenceScores.Negative),
-                Timestamp = DateTime.Now
+                var sentimentResult = new SentimentResult
+                {
+                    ConversationId = conversationId,
+                    SentimentScore = textAnalysis.Value.Sentiment.ToString(),
+                    Positive = Convert.ToDecimal(textAnalysis.Value.ConfidenceScores.Positive),
+                    Neutral = Convert.ToDecimal(textAnalysis.Value.ConfidenceScores.Neutral),
+                    Negative = Convert.ToDecimal(textAnalysis.Value.ConfidenceScores.Negative),
+                    Timestamp = DateTime.Now
 
-            };
-            await context.AddAsync(sentimentResult);
-            await context.SaveChangesAsync();
+                };
+                await context.AddAsync(sentimentResult);
+                await context.SaveChangesAsync();
+            }
         }
     }
 }

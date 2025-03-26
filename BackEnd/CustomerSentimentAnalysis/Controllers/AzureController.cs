@@ -23,7 +23,7 @@ namespace CustomerSentimentAnalysis.Controllers
             _analyticOperations = analyticOperations;
         }
 
-        [HttpPost("analyze")]
+        [HttpGet("analyze")]
         public async Task<ActionResult> AnalyzeSentiment(int conversationId)
         {
             string text = await _analyticOperations.GetConversation(conversationId);

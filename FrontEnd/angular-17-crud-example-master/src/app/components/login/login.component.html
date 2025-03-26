@@ -1,18 +1,30 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div fxLayout="column" fxLayoutAlign="center center" fxFill>
-  <form class="container" fxLayout="column" fxLayoutGap="20px" [formGroup]="loginForm">
-    <h1>Log In</h1>
-    <div *ngIf="errMsg.length > 0" fxLayout="column" fxLayoutGap="5px">
-      <span *ngFor="let msg of errMsg">{{msg}}</span>
-    </div>
-    <div>
-        <input type="text" placeholder="Username" formControlName="username">
-    </div>
-    <div>
-        <input type="password" placeholder="Password" formControlName="password">
-    </div>
-    <div>
-        <button (click)="onSubmit()">Submit</button>
-    </div>
-  </form>
-</div>
+
+<div class="login-details">
+  <div class="wrapper">
+     <div class="title">
+        Login Form
+     </div>
+     <form [formGroup]="loginForm">
+        <div class="field">
+          <input type="text" placeholder="Email Address" formControlName="username">
+        </div>
+        <div class="field">
+          <input type="password" placeholder="Password" formControlName="password">
+        </div>
+        <div class="content">
+           <div class="checkbox">
+              <input type="checkbox" id="remember-me">
+              <label for="remember-me">Remember me</label>
+           </div>
+           <div class="pass-link">
+              <a href="#">Forgot password?</a>
+           </div>
+        </div>
+        <div class="field">
+           <input type="submit" value="Login" (click)="onSubmit()">
+        </div>
+        <div *ngIf="errMsg.length > 0" fxLayout="column" fxLayoutGap="5px">
+          <span *ngFor="let msg of errMsg">{{msg}}</span>
+        </div>  
+     </form>        
+  </div>

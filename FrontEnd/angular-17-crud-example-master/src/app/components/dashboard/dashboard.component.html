@@ -3,9 +3,9 @@
         <tr>
             <th>Agent Name</th>
             <th>Client Name</th>
-            <th>Sentiment</th>
+            <!-- <th>Sentiment</th> -->
             <th>Channel</th>
-            <th></th>
+            <th>Sentiment Score</th>
             <th></th>
         </tr>
     </thead>
@@ -13,14 +13,28 @@
         <tr *ngFor="let con of conversation">
             <td>{{ con.agentName }}</td>
             <td>{{ con.clientName }}</td>
-            <td>{{ con.sentiment }}</td>
+            <!-- <td>{{ con.sentiment }}</td> -->
             <td>{{ con.channel }}</td>
-            <td  style="width: 200px;"><div *ngIf="con.sentiment" [style.background]="getGradient(con)" class="gradient-bar"></div></td>
+            <ng-container *ngIf="con.sentiment; then thenTemplate; else elseTemplate"></ng-container>
+                <ng-template #thenTemplate>
+
+                    <td  style="width: 200px;">
+                        <div class="display-img" *ngIf="con.sentiment=='Positive'"><img class="sentiment-img"  src="assets/images/positive.png" /></div>
+                        <div class="display-img" *ngIf="con.sentiment=='Neutral'"><img class="sentiment-img"  src="assets/images/neutral.png" /></div>
+                        <div class="display-img" *ngIf="con.sentiment=='Negative'"><img class="sentiment-img" src="assets/images/negative.png" /></div>
+                        <div *ngIf="con.sentiment" [style.background]="getGradient(con)" class="gradient-bar"></div></td>
+                </ng-template>
+                <ng-template #elseTemplate>
+                    <td>
+                        <!-- <input type="button" class="action-button" value="Get Sentiment" (click)="GetAnalysis(con.conversationId)"> -->
+                        <a class="get-score" href="javascript:void(0)" (click)="GetAnalysis(con.conversationId)">Get Score</a>
+                    </td>
+                </ng-template>
             <td>
                 <button class="action-button" (click)="openModal(con)">
-                    <i class="fas fa-eye"></i>
+                    <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
-                <input type="button" class="action-button" value="Get Sentiment" (click)="GetAnalysis(con.conversationId)" *ngIf="!con.sentiment">
+                <!-- <input type="button" class="action-button" value="Get Sentiment" (click)="GetAnalysis(con.conversationId)" *ngIf="!con.sentiment"> -->
             </td>
         </tr>
     </tbody>
@@ -31,9 +45,9 @@
     <div class="modal-content">
         <span class="close" (click)="closeModal()">&times;</span>
         <h2>Conversation Summary</h2>
-        <p>Agent Name: {{ selectedConversation.agentName }}</p>
+        <!-- <p>Agent Name: {{ selectedConversation.agentName }}</p>
         <p>Client Name: {{ selectedConversation.clientName }}</p>
-        <p>Channel: {{ selectedConversation.channel }}</p>
+        <p>Channel: {{ selectedConversation.channel }}</p> -->
         <div [innerHTML]="formatConversation(selectedConversation.conversationText)"></div>
         <!-- Add more properties as needed -->
     </div>

@@ -1,5 +1,6 @@
 .styled-table {
-    width: 100%;
+    width: 1292px;
+    height: 558px;
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 18px;
@@ -7,36 +8,31 @@
 }
 
 .styled-table thead tr {
+    background: linear-gradient(90deg, #97EFB1 0%, #0EDFFF 100%);
     background-color: #009879;
     color: #ffffff;
     text-align: left;
+    width: 1292px;
+    height: 48px;
+
 }
 
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
-    border: 1px solid #dddddd;
-}
-
-.styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    padding: 20px 16px;
+    /* border: 1px solid #dddddd; */
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
+    /* background-color: #f3f3f3; */
+    background-color: #06D2D314;
 
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
 }
 
 .styled-table tbody tr.active-row {
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #009879;
 }
-
-
-/* Test */
 
 .modal {
     display: block;
@@ -74,6 +70,14 @@
     cursor: pointer;
 }
 
+.get-score{
+    padding-left: 40px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0%;
+
+}
+
 p{
     font-size: bold;
     color: cornflowerblue;
@@ -83,10 +87,11 @@ p{
 }
 
 .gradient-bar {
-    width: 100%;
+    width: 80%;
     height: 20px;
     border-radius: 5px;
     margin-top: 5px;
+    float: right;
 }
 
 .sentiment-bars {
@@ -96,13 +101,13 @@ p{
   }
   
   .bar {
-    height: 30px;
+    height: 20px;
     color: white;
     font-weight: bold;
     margin-bottom: 10px;
     
     text-align: center;
-    line-height: 30px; /* Align text vertically */
+    line-height: 20px; /* Align text vertically */
   }
   
   .positive {
@@ -115,4 +120,12 @@ p{
   
   .negative {
     background-color: #f44336;
+  }
+  .sentiment-img{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+  }
+  .display-img{
+    float: left;
   }

@@ -65,9 +65,9 @@ refreshComponent(): void {
   this.ngOnInit(); // Reinitialize the component
 }
 getGradient(sentimentScore:Conversation): string {
-  const goodColor = 'green';
-  const neutralColor = 'yellow';
-  const badColor = 'red';
+  const goodColor = '#5A9936';
+  const neutralColor = '#FBB034';
+  const badColor = '#EF4044';
 
   return `linear-gradient(to right, ${goodColor} ${sentimentScore.positive * 100}%, ${neutralColor} ${sentimentScore.neutral * 100}%, ${badColor} ${sentimentScore.negative * 100}%)`;
 }

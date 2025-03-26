@@ -10,6 +10,7 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AgentBbbotComponent } from './components/agent-bbbot/agent-bbbot.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     TutorialDetailsComponent,
     TutorialsListComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    AgentBbbotComponent
   ],
   imports: [
     BrowserModule,

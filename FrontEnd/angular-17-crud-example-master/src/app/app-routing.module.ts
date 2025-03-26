@@ -5,12 +5,14 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AgentBbbotComponent } from './components/agent-bbbot/agent-bbbot.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
  
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'bbbot', component: AgentBbbotComponent }
 
 ];
 
